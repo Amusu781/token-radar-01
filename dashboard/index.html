@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="title">
+    <h1>Token Launch Radar</h1>
+    <p class="lede">Every pre-token protocol in the sealed DefiLlama snapshot, ranked by what its token would be worth if the protocol's record stayed as it is. A protocol records no token — never that it has none.</p>
+  </div>
+  <div class="stats" id="stats"></div>
+</header>
+<nav class="tabs" id="tabs">
+  <button data-tab="board" class="on">Pre-token board</button>
+  <button data-tab="live">Live tokens</button>
+  <button data-tab="model">The model</button>
+</nav>
+<section class="controls" id="controls">
+  <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search">
+  <select id="fChain" aria-label="Chain filter"></select>
+  <select id="fCat" aria-label="Category filter"></select>
+  <select id="fTvl" aria-label="Minimum TVL">
+    <option value="0">Any TVL</option>
+    <option value="10000000">TVL ≥ $10M</option>
+    <option value="50000000">TVL ≥ $50M</option>
+    <option value="100000000">TVL ≥ $100M</option>
+    <option value="500000000">TVL ≥ $500M</option>
+    <option value="1000000000">TVL ≥ $1B</option>
+  </select>
+  <select id="fScope" aria-label="Watchlist or early">
+    <option value="all">Watchlist + early</option>
+    <option value="watchlist">Watchlist only</option>
+    <option value="early">Early only</option>
+  </select>
+  <select id="fSort" aria-label="Sort by">
+    <option value="implied">Sort: implied value</option>
+    <option value="tvl">Sort: TVL</option>
+    <option value="change">Sort: 7-day change</option>
+    <option value="age">Sort: oldest first</option>
+    <option value="name">Sort: name A–Z</option>
+  </select>
+</section>
+<p class="count" id="count"></p>
+<main>
+  <section id="detail"></section>
+  <section id="boardWrap">
+    <table id="board">
+      <thead><tr>
+        <th>#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+        <th>TVL</th><th>7d</th><th>Age</th><th>Implied value</th>
+      </tr></thead>
+      <tbody id="boardBody"></tbody>
+    </table>
+  </section>
+  <section id="liveWrap" hidden>
+    <p class="note">Live tokens are shown for comparison only: their market caps are real, the board's implied values are this radar's own claim. They are not ranked here.</p>
+    <table id="live">
+      <thead><tr><th>Protocol</th><th>Category</th><th>Chains</th><th>TVL</th><th>Market cap</th><th>Mcap / TVL</th></tr></thead>
+      <tbody id="liveBody"></tbody>
+    </table>
+  </section>
+  <section id="modelWrap" hidden></section>
+</main>
+<footer>
+  <p>Snapshot: DefiLlama protocols, fetched 14 Nov 2026. 758 protocols at or above $5M TVL; watchlist 40 at or above the $50M floor with no token recorded. Implied values are this radar's own claim, never make.fun's. Farm steps are research, not financial advice.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
